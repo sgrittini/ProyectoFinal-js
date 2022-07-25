@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  border: 1px rgb(70, 56, 56) solid;
+  background-color: black;
+}
+
+header {
+  background-color: burlywood;
+}
+
+.butaca {
+  margin: 2px;
+  width: 30px;
+  height: 30px;
+}
+
+main {
+  height: 34rem;
+  background-image: linear-gradient(to right, gray, rgb(222, 215, 215), rgb(248, 236, 236), white);
+}
+main .divMenu {
+  margin-left: 10px;
+  font-size: larger;
+  font-weight: bold;
+}
+main .contenedorSalonGral {
+  display: grid;
+  grid-template-areas: "pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1  reservas reservas reservas reservas" "pasillo2 platea platea platea platea platea platea platea platea platea platea platea platea pasillo3 reservas reservas reservas reservas" "pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 reservas reservas reservas reservas" "pullIz pullIz pasillo5 pullCentro pullCentro pullCentro pullCentro pullCentro pullCentro pullCentro pullCentro pasillo6 pullDe pullDe reservas reservas reservas reservas";
+}
+main .reservas {
+  grid-area: reservas;
+  background-color: white;
+  height: 34rem;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+main .reservas div {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+main .reservas div h4 {
+  text-align: center;
+}
+main .reservas div input {
+  border: 2px solid black;
+  text-align: center;
+  font-weight: bold;
+  color: blue;
+  font-size: large;
+}
+main .reservas div button {
+  margin: 2px;
+  width: 100px;
+}
+main .pasillo1 {
+  text-align: center;
+  font-weight: bolder;
+  grid-area: pasillo1;
+  width: auto;
+  background-color: gray;
+  height: 2rem;
+}
+main .platea {
+  grid-area: platea;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: auto;
+  height: 10rem;
+  background-color: rgb(222, 10, 10);
+  justify-content: center;
+}
+main .platea div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+main .pasillo2 {
+  grid-area: pasillo2;
+  width: auto;
+  background-color: gray;
+  height: 10rem;
+}
+main .pasillo3 {
+  grid-area: pasillo3;
+  width: auto;
+  background-color: gray;
+  height: 10rem;
+}
+main .pasillo4 {
+  grid-area: pasillo4;
+  width: auto;
+  background-color: gray;
+  height: 2rem;
+}
+main .pullIz {
+  grid-area: pullIz;
+  width: auto;
+  height: 20rem;
+  background-color: rgb(41, 27, 187);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main .pullIz div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+main .pasillo5 {
+  grid-area: pasillo5;
+  width: auto;
+  background-color: gray;
+  height: 20rem;
+}
+main .pullCentro {
+  grid-area: pullCentro;
+  width: auto;
+  background-color: rgb(25, 177, 23);
+  height: 20rem;
+  flex-direction: column;
+  justify-content: center;
+}
+main .pullCentro div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+main .pasillo6 {
+  grid-area: pasillo6;
+  width: auto;
+  background-color: gray;
+  height: 20rem;
+}
+main .pullDe {
+  grid-area: pullDe;
+  width: auto;
+  height: 20rem;
+  background-color: rgb(41, 27, 187);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main .pullDe div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+footer {
+  background-color: chartreuse;
+}
+footer .divFooter {
+  width: 100%;
+  height: 79px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+footer .divFooter div p {
+  margin-right: 20px;
+  font-size: small;
+  font-weight: bold;
+  font-style: italic;
+}
+
+@media screen and (max-width: 992px) {
+  .contenedorSalonGral {
+    grid-template-areas: " pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 " "pasillo2 platea platea platea platea platea platea platea platea platea platea pasillo3" "pasillo4 pasillo4  pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4" "pullIz pullIz pasillo5 pullCentro pullCentro pullCentro pullCentro pullCentro pullCentro pasillo6 pullDe pullDe";
+  }
+  .contenedorSalonGral .reservas {
+    display: none;
+  }
+  .butaca {
+    margin: 3px;
+    width: 20px;
+    height: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .butaca {
+    margin: 1px;
+    width: 10px;
+    height: 10px;
+  }
+}/*# sourceMappingURL=salon1.css.map */

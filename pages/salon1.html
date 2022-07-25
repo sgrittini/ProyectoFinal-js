@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../img/url.png">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/salon1.css">
+
+  <title>Salon 1</title>
+</head>
+
+<body>
+  <header>
+
+  </header>
+  <main>
+    <div><a class="nav-link active divMenu" aria-current="page" href="../index.html">Menu Principal</a></div>
+    <div class="contenedorSalonGral">
+      <div class="reservas">
+        <div>
+          <h4>Salón Niní Marshall</h4>
+        </div>
+        <div>
+         <div class="col-sm-2">
+            <input type="number" class="form-control-plaintext" id="cantidad" name="cantidadEspectadores" min="0"
+              value="1">
+          </div>
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary" onclick="">Buscar</button>
+          <button type="button" class="btn btn-primary" onclick="confirmarButacas()">Confirmar</button>
+
+        </div>
+
+      </div>
+      <div class="pasillo1">PANTALLA/ESCENARIO</div>
+      <div class="pasillo2"></div>
+      <div class="platea">
+        <div>
+          <button class="butaca" id="b1" onclick="butaca(this)"></button>
+          <button class="butaca" id="b2" onclick="butaca(this)"></button>
+          <button class="butaca" id="b3" onclick="butaca(this)"></button>
+          <button class="butaca" id="b4" onclick="butaca(this)"></button>
+          <button class="butaca" id="b5" onclick="butaca(this)"></button>
+          <button class="butaca" id="b6" onclick="butaca(this)"></button>
+          <button class="butaca" id="b7" onclick="butaca(this)"></button>
+          <button class="butaca" id="b8" onclick="butaca(this)"></button>
+          <button class="butaca" id="b9" onclick="butaca(this)"></button>
+          <button class="butaca" id="b10" onclick="butaca(this)"></button>
+          <button class="butaca" id="b11" onclick="butaca(this)"></button>
+          <button class="butaca" id="b12" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="b13" onclick="butaca(this)" value="1"></button>
+          <button class="butaca" id="b14" onclick="butaca(this)"></button>
+          <button class="butaca" id="b15" onclick="butaca(this)"></button>
+          <button class="butaca" id="b16" onclick="butaca(this)"></button>
+          <button class="butaca" id="b17" onclick="butaca(this)"></button>
+          <button class="butaca" id="b18" onclick="butaca(this)"></button>
+          <button class="butaca" id="b19" onclick="butaca(this)"></button>
+          <button class="butaca" id="b20" onclick="butaca(this)"></button>
+          <button class="butaca" id="b21" onclick="butaca(this)"></button>
+          <button class="butaca" id="b22" onclick="butaca(this)"></button>
+          <button class="butaca" id="b23" onclick="butaca(this)"></button>
+          <button class="butaca" id="b24" onclick="butaca(this)"></button>
+        </div>
+      </div>
+      <div class="pasillo3"></div>
+      <div class="pasillo4"></div>
+      <div class="pullIz">
+        <div>
+          <button class="butaca" id="PI1" onclick="butaca(this)"></button>
+          <button class="butaca" id="PI2" onclick="butaca(this)"></button>
+
+        </div>
+        <div>
+          <button class="butaca" id="PI3" onclick="butaca(this)"></button>
+          <button class="butaca" id="PI4" onclick="butaca(this)"></button>
+
+        </div>
+        <div>
+          <button class="butaca" id="PI5" onclick="butaca(this)"></button>
+          <button class="butaca" id="PI6" onclick="butaca(this)"></button>
+
+        </div>
+        <div>
+
+          <button class="butaca" id="PI7" onclick="butaca(this)"></button>
+          <button class="butaca" id="PI8" onclick="butaca(this)"></button>
+        </div>
+        <div>
+
+          <button class="butaca" id="PI9" onclick="butaca(this)"></button>
+          <button class="butaca" id="PI10" onclick="butaca(this)"></button>
+        </div>
+        <div>
+
+          <button class="butaca" id="PI11" onclick="butaca(this)"></button>
+          <button class="butaca" id="PI12" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PI13" onclick="butaca(this)"></button>
+          <button class="butaca" id="PI14" onclick="butaca(this)"></button>
+
+        </div>
+        <div>
+          <button class="butaca" id="PI15" onclick="butaca(this)"></button>
+          <button class="butaca" id="PI16" onclick="butaca(this)"></button>
+
+        </div>
+      </div>
+      <div class="pasillo5"></div>
+      <div class="pullCentro">
+        <div>
+          <button class="butaca" id="PC1" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC2" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC3" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC4" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC5" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC6" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC7" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC8" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC9" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC10" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC11" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC12" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC13" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC14" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC15" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC16" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PC17" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC18" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC19" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC20" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC21" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC22" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC23" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC24" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC25" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC26" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC27" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC28" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC29" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC30" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC31" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC32" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PC33" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC34" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC35" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC36" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC37" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC38" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC39" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC40" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC41" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC42" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC43" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC44" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC45" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC46" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC47" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC48" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PC49" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC50" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC51" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC52" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC53" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC54" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC55" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC56" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC57" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC58" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC59" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC60" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC61" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC62" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC63" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC64" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PC65" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC66" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC67" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC68" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC69" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC70" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC71" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC72" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC73" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC74" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC75" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC76" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC77" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC78" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC79" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC80" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PC81" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC82" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC83" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC84" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC85" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC86" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC87" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC88" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC89" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC90" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC91" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC92" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC93" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC94" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC95" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC96" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PC97" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC98" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC99" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC100" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC101" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC102" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC103" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC104" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC105" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC106" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC107" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC108" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC109" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC110" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC111" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC112" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PC113" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC114" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC115" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC116" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC117" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC118" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC119" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC120" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC121" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC122" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC123" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC124" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC125" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC126" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC127" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC128" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PC129" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC130" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC131" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC132" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC133" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC134" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC135" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC136" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC137" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC138" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC139" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC140" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC141" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC142" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC143" onclick="butaca(this)"></button>
+          <button class="butaca" id="PC144" onclick="butaca(this)"></button>
+        </div>
+
+      </div>
+      <div class="pasillo6"></div>
+      <div class="pullDe">
+        <div>
+          <button class="butaca" id="PD1" onclick="butaca(this)"></button>
+          <button class="butaca" id="PD2" onclick="butaca(this)"></button>
+
+        </div>
+        <div>
+          <button class="butaca" id="PD3" onclick="butaca(this)"></button>
+          <button class="butaca" id="PD4" onclick="butaca(this)"></button>
+
+        </div>
+        <div>
+          <button class="butaca" id="PD5" onclick="butaca(this)"></button>
+          <button class="butaca" id="PD6" onclick="butaca(this)"></button>
+
+        </div>
+        <div>
+
+          <button class="butaca" id="PD7" onclick="butaca(this)"></button>
+          <button class="butaca" id="PD8" onclick="butaca(this)"></button>
+        </div>
+        <div>
+
+          <button class="butaca" id="PD9" onclick="butaca(this)"></button>
+          <button class="butaca" id="PD10" onclick="butaca(this)"></button>
+        </div>
+        <div>
+
+          <button class="butaca" id="PD11" onclick="butaca(this)"></button>
+          <button class="butaca" id="PD12" onclick="butaca(this)"></button>
+        </div>
+        <div>
+          <button class="butaca" id="PD13" onclick="butaca(this)"></button>
+          <button class="butaca" id="PD14" onclick="butaca(this)"></button>
+
+        </div>
+        <div>
+          <button class="butaca" id="PD15" onclick="butaca(this)"></button>
+          <button class="butaca" id="PD16" onclick="butaca(this)"></button>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <footer>
+    <div class="divFooter">
+
+      <div>
+
+        <p>Trabajo práctico Java Script - CODERHOUSE</p>
+      </div>
+      <div>
+
+        <p>Alumno - Sergio Leonardo Grittini Comisión 33980 </p>
+      </div>
+    </div>
+  </footer>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../javaScript/salon1.js"></script>
+</body>
+
+</html>
