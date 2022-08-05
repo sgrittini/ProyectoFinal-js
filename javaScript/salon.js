@@ -33,7 +33,7 @@ function botonButaca(element) {
         document.getElementById(element.id).style.backgroundColor = 'green';
     }
 
-    //console.log(element.id);
+    //console.log(element.id);//
     //console.log(`el valor de values es: ${element.value}`);
 
 }
