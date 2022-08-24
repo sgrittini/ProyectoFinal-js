@@ -14,3 +14,5 @@ class butacaReservada {
             this.innerText=innerText
     }
 }
+
+

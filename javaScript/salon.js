@@ -62,12 +62,12 @@ function seleccionaButaca(element) {
     else if (document.getElementById(element.id).style.backgroundColor != 'grey') {
         document.getElementById(element.id).style.backgroundColor = 'green';
     }
-    alerta("");
+    
 
 }
 
 function buscarLugares() {
-    alerta("");
+   
     let sector = document.getElementById("idSelect").value;
     let obj = arraySalon.find((element) => element.nombreSeccion == sector);
     let lugaresSolicitados = document.getElementById("cantidad").value;
@@ -93,7 +93,6 @@ function buscarLugares() {
 }
 
 function confirmarButacas() {
-    alerta("");
     let sector = document.getElementById("idSelect").value;
     let obj = arraySalon.find((element) => element.nombreSeccion == sector);
     confirmarButacasSalon(obj.nombreSeccion, obj.canitidadButacas);
@@ -138,7 +137,13 @@ function pintarEspacio(lugarReservado) {
 }
 
 function alerta(mensaje) {
-    document.getElementById("notificciones").innerText = mensaje;
+    //document.getElementById("notificciones").innerText = mensaje;
+    swal({
+        title: "Disponibilidad",
+        text: mensaje,
+        icon: "error",
+        button: "Ok!",
+      });
 }
 
 function marcarButacasReservadas(arrayButacasReservadas) {
