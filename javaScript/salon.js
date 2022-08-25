@@ -1,4 +1,4 @@
-
+const DateTime = luxon.DateTime;
 let arraySalon = [];
 let arrayButacasReservadas = [];
 let salonSeleccionado = "arrayButacas-" + document.getElementById("Salon").getAttribute("value");
@@ -7,7 +7,7 @@ inicializar(salonSeleccionado);
 
 function inicializar(nombreSalon) {
     let objSalon;
-
+    document.getElementById("idFecha").innerText=DateTime.now().toFormat('MMMM dd, yyyy');
     objSalon = new salon(nombreSalon, "PF", 24);
     arraySalon.push(objSalon);
     objSalon = new salon(nombreSalon, "PI", 16);
@@ -29,7 +29,7 @@ function inicializar(nombreSalon) {
     arrayButacasReservadas = JSON.parse(localStorage.getItem(salonSeleccionado))||[];
     marcarButacasReservadas(arrayButacasReservadas);
     habilitarZona();
-
+    
 }
 
 function habilitarZona() {
@@ -119,6 +119,18 @@ function confirmarButacasSalon(seccion, cantidad) {
             }
         }
         localStorage.setItem(salonSeleccionado, JSON.stringify(arrayButacasReservadas));
+        Toastify({
+            text: `Se reservaron ${lugaresSolicitados} butacas`,
+            duration: 3500,
+            newWindow: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #997689, #1f1219)",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
     }
     else if (butacasSeleccionadas < lugaresSolicitados) {
         alerta("Faltan seleccionar butacas...");
@@ -138,12 +150,11 @@ function pintarEspacio(lugarReservado) {
 
 function alerta(mensaje) {
     //document.getElementById("notificciones").innerText = mensaje;
-    swal({
-        title: "Disponibilidad",
-        text: mensaje,
-        icon: "error",
-        button: "Ok!",
-      });
+    Swal.fire({
+        imageUrl:'../img/url.png',
+        //icon: "error",
+        title: mensaje
+      })
 }
 
 function marcarButacasReservadas(arrayButacasReservadas) {
