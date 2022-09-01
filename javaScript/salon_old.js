@@ -1,27 +1,11 @@
 const DateTime = luxon.DateTime;
 let arraySalon = [];
 let arrayButacasReservadas = [];
-let nombreSalon = document.getElementById("Salon").getAttribute("value");
-let array_butacas_salon = "arrayButacas-" + nombreSalon;
+let salonSeleccionado = "arrayButacas-" + document.getElementById("Salon").getAttribute("value");
 
+inicializar(salonSeleccionado);
 
-FetchSalon()
-    .then(response => recuperarLoyout(response));
-
-function recuperarLoyout(data) {
-    data.forEach((element) => {
-        let objSalon = new salon(nombreSalon, element.nombreSeccion, element.canitidadButacas);
-        arraySalon.push(objSalon);
-    });
-    inicializar();
-}
-
-
-
-
-
-function inicializar() {
-    /*
+function inicializar(nombreSalon) {
     let objSalon;
     document.getElementById("idFecha").innerText=DateTime.now().toFormat('MMMM dd, yyyy');
     objSalon = new salon(nombreSalon, "PF", 24);
@@ -32,7 +16,6 @@ function inicializar() {
     arraySalon.push(objSalon);
     objSalon = new salon(nombreSalon, "PC", 144);
     arraySalon.push(objSalon);
-    */  
     arraySalon.forEach(element => {
         for (let index = 1; index <= element.canitidadButacas; index++) {
             document.getElementById(`${element.nombreSeccion}${index}`).style.backgroundColor = 'white';
@@ -43,7 +26,7 @@ function inicializar() {
     //arrayButacasReservadas = JSON.parse(localStorage.getItem(salonSeleccionado));
     //arrayButacasReservadas == null ? arrayButacasReservadas = [] : marcarButacasReservadas(arrayButacasReservadas);
     
-    arrayButacasReservadas = JSON.parse(localStorage.getItem(array_butacas_salon))||[];
+    arrayButacasReservadas = JSON.parse(localStorage.getItem(salonSeleccionado))||[];
     marcarButacasReservadas(arrayButacasReservadas);
     habilitarZona();
     
@@ -92,7 +75,7 @@ function buscarLugares() {
     let lugarReservado = [];
     let cuentaEspacios = 0;
     //let flagEncontro = false;
-    inicializar(array_butacas_salon);
+    inicializar();
     for (let index = 1; index <= obj.canitidadButacas; index++) {
        
         if (document.getElementById(`${obj.nombreSeccion}${index}`).style.backgroundColor == 'white') {
@@ -135,7 +118,7 @@ function confirmarButacasSalon(seccion, cantidad) {
                 arrayButacasReservadas.push(miButaca);
             }
         }
-        localStorage.setItem(array_butacas_salon, JSON.stringify(arrayButacasReservadas));
+        localStorage.setItem(salonSeleccionado, JSON.stringify(arrayButacasReservadas));
         Toastify({
             text: `Se reservaron ${lugaresSolicitados} butacas`,
             duration: 3500,
