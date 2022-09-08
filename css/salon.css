@@ -63,6 +63,15 @@ main .reservas div button {
   margin: 2px;
   width: 100px;
 }
+main .reservas .divNotificacionesContenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  border: dashed 1px;
+}
+main .reservas .divNotificacionesContenedor .divNotificaciones {
+  justify-content: space-between;
+}
 main .pasillo1 {
   text-align: center;
   font-weight: bolder;
@@ -176,12 +185,67 @@ footer .divFooter div p {
   font-style: italic;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(17, 17, 17, 0.7411764706);
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal .modal__container {
+  margin: auto;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90%;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  place-items: center;
+  grid-auto-columns: 100%;
+}
+.modal .modal__title {
+  font-size: 2.5rem;
+}
+.modal .modal__paragraph1 {
+  margin-bottom: 10px;
+}
+.modal .modal__paragraph2 {
+  margin-bottom: 10px;
+}
+.modal .modal__img {
+  width: 30%;
+  max-width: 300px;
+}
+.modal .modal__close {
+  text-decoration: none;
+  color: #fff;
+  background-color: #f26250;
+  padding: 1em 3em;
+  border: 1px solid;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 300;
+  transition: background-color 0.3s;
+}
+.modal .modal__close:hover {
+  color: #f26250;
+  background-color: rgb(243, 164, 164);
+}
+
+.modal--show {
+  opacity: 1;
+  pointer-events: unset;
+}
+
 @media screen and (max-width: 992px) {
   .contenedorSalonGral {
     grid-template-areas: " pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 " "pasillo2 platea platea platea platea platea platea platea platea platea platea pasillo3" "pasillo4 pasillo4  pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4" "pullIz pullIz pasillo5 pullCentro pullCentro pullCentro pullCentro pullCentro pullCentro pasillo6 pullDe pullDe";
-  }
-  .contenedorSalonGral .reservas {
-    display: none;
   }
   .butaca {
     margin: 3px;

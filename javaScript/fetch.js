@@ -5,3 +5,10 @@ async function FetchSalon() {
     const data = await resp.json();
     return data;
 }
+
+async function FetchPrecios() {
+    const resp = await fetch('/listaPrecio.json');
+    const data = await resp.json();
+    return data;
+}
+

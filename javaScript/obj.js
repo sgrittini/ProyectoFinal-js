@@ -7,12 +7,17 @@ class salon {
 }
 
 class butacaReservada {
-    constructor(id,backgroundColor,value,innerText) {
-            this.id = id,
+    constructor(id, backgroundColor, value, innerText) {
+        this.id = id,
             this.backgroundColor = backgroundColor
-            this.value = value,
-            this.innerText=innerText
+        this.value = value,
+            this.innerText = innerText
     }
 }
 
-
+class ocupacion {
+    constructor(nombreSala, porcentaje) {
+        this.nombreSala = nombreSala,
+            this.porcentaje = porcentaje
+    }
+}

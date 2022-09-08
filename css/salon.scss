@@ -4,31 +4,31 @@ $color-pullIz: rgb(41, 27, 187);
 $color-pullDe: rgb(41, 27, 187);
 $color-pullCentro: rgb(25, 177, 23);
 $color-pullGanado: rgb(195, 18, 98);
-$color:rgb(33, 2, 2);
+$color: rgb(33, 2, 2);
 
-$width-reservas:auto;
-$width-pasillo-1:auto;
-$width-pantalla:auto;
+$width-reservas: auto;
+$width-pasillo-1: auto;
+$width-pantalla: auto;
 
-$width-pasillo-2:auto;
+$width-pasillo-2: auto;
 $width-platea: auto;
-$width-pasillo-3:auto;
+$width-pasillo-3: auto;
 
-$width-pasillo-4:auto;
+$width-pasillo-4: auto;
 
-$width-pullIz:auto;
-$width-pasillo-5:auto;
-$width-pullCentro:auto;
-$width-pasillo-6:auto;
-$width-pullDe:auto;
+$width-pullIz: auto;
+$width-pasillo-5: auto;
+$width-pullCentro: auto;
+$width-pasillo-6: auto;
+$width-pullDe: auto;
 
-$width-pasillo-7:auto;
-$width-pullGanado:auto;
+$width-pasillo-7: auto;
+$width-pullGanado: auto;
 
-$heigth-pull:20rem;
-$heigth-platea:10rem;
-$heigth-pasilloHorizontal:2rem;
-$heigth-resevas:34rem;
+$heigth-pull: 20rem;
+$heigth-platea: 10rem;
+$heigth-pasilloHorizontal: 2rem;
+$heigth-resevas: 34rem;
 
 * {
     margin: 0;
@@ -39,72 +39,95 @@ $heigth-resevas:34rem;
 body {
     border: 1px rgb(70, 56, 56) solid;
     background-color: black;
-    
+
 }
 
 header {
 
     background-color: burlywood;
 }
-.form-select{
+
+.form-select {
     font-weight: bolder;
 }
-.butaca{
-    margin:  2px;
+
+.butaca {
+    margin: 2px;
     width: 30px;
     height: 30px;
 }
+
 main {
     height: 34rem;
-    background-image: linear-gradient(to right, gray ,rgb(222, 215, 215),rgb(248, 236, 236) ,white);
-    .divMenu{
+    background-image: linear-gradient(to right, gray, rgb(222, 215, 215), rgb(248, 236, 236), white);
+
+    .divMenu {
         margin-left: 10px;
         font-size: larger;
         font-weight: bold;
     }
+
     .contenedorSalonGral {
         display: grid;
-        grid-template-areas: 
+        grid-template-areas:
             "pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1  reservas reservas reservas reservas"
             "pasillo2 platea platea platea platea platea platea platea platea platea platea platea platea pasillo3 reservas reservas reservas reservas"
             "pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 reservas reservas reservas reservas"
             "pullIz pullIz pasillo5 pullCentro pullCentro pullCentro pullCentro pullCentro pullCentro pullCentro pullCentro pasillo6 pullDe pullDe reservas reservas reservas reservas";
-            
+
 
     }
-    .reservas{
+
+    .reservas {
         grid-area: reservas;
         background-color: white;
         height: $heigth-resevas;
         width: $width-reservas;
         display: flex;
         flex-direction: column;
-        justify-content:flex-start;
-        div{
+        justify-content: flex-start;
+
+        div {
             display: flex;
-            justify-content:center;
+            justify-content: center;
             margin: 5px;
-           h4{
-            text-align: center;
-           }
-           input{
-            
-            border: 2px solid black;
-            
-            text-align: center;
-            font-weight: bold;
-            color: blue;
-            font-size: large;
-           }
-           button{
-            
-            margin: 2px;
-            width: 100px;
-           }
+
+            h4 {
+                text-align: center;
+            }
+
+            input {
+
+                border: 2px solid black;
+
+                text-align: center;
+                font-weight: bold;
+                color: blue;
+                font-size: large;
+            }
+
+            button {
+
+                margin: 2px;
+                width: 100px;
+            }
         }
-       
-        
+
+        .divNotificacionesContenedor {
+            display: flex;
+            flex-direction: column; 
+            justify-content: left;
+            border: dashed 1px;
+            .divNotificaciones{
+                justify-content: space-between;
+                
+
+            }
+
+        }
+
     }
+
     .pasillo1 {
         text-align: center;
         font-weight: bolder;
@@ -124,7 +147,8 @@ main {
         height: $heigth-platea;
         background-color: $color-platea;
         justify-content: center;
-        div{
+
+        div {
             display: flex;
             flex-wrap: nowrap;
             justify-content: space-around;
@@ -132,21 +156,21 @@ main {
     }
 
     .pasillo2 {
-        grid-area:pasillo2;
+        grid-area: pasillo2;
         width: $width-pasillo-2;
         background-color: $color-pasillo;
         height: $heigth-platea;
     }
 
     .pasillo3 {
-        grid-area:pasillo3;
+        grid-area: pasillo3;
         width: $width-pasillo-3;
         background-color: $color-pasillo;
         height: $heigth-platea;
     }
 
     .pasillo4 {
-        grid-area:pasillo4;
+        grid-area: pasillo4;
         width: $width-pasillo-4;
         background-color: $color-pasillo;
         height: $heigth-pasilloHorizontal;
@@ -160,7 +184,8 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        div{
+
+        div {
             display: flex;
             flex-wrap: nowrap;
             justify-content: space-evenly;
@@ -168,21 +193,21 @@ main {
     }
 
     .pasillo5 {
-        grid-area:pasillo5;
+        grid-area: pasillo5;
         width: $width-pasillo-5;
         background-color: $color-pasillo;
         height: $heigth-pull;
     }
 
     .pullCentro {
-        grid-area:pullCentro;
+        grid-area: pullCentro;
         width: $width-pullCentro;
         background-color: $color-pullCentro;
         height: $heigth-pull;
         flex-direction: column;
         justify-content: center;
-       
-        div{
+
+        div {
             display: flex;
             flex-wrap: nowrap;
             justify-content: space-evenly;
@@ -190,21 +215,22 @@ main {
     }
 
     .pasillo6 {
-        grid-area:pasillo6;
+        grid-area: pasillo6;
         width: $width-pasillo-6;
         background-color: $color-pasillo;
         height: $heigth-pull;
     }
 
     .pullDe {
-        grid-area:pullDe;
+        grid-area: pullDe;
         width: $width-pullDe;
         height: $heigth-pull;
         background-color: $color-pullDe;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        div{
+
+        div {
             display: flex;
             flex-wrap: nowrap;
             justify-content: space-evenly;
@@ -212,12 +238,13 @@ main {
 
     }
 
-    
+
 }
 
 footer {
 
     background-color: chartreuse;
+
     .divFooter {
 
         width: 100%;
@@ -226,6 +253,7 @@ footer {
         flex-direction: row;
         align-items: flex-end;
         justify-content: space-around;
+
         div p {
             margin-right: 20px;
             font-size: small;
@@ -235,21 +263,92 @@ footer {
     }
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+
+    .modal__container {
+        margin: auto;
+        width: 90%;
+        max-width: 600px;
+        max-height: 90%;
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 3em 2.5em;
+        display: grid;
+        gap: 1em;
+        place-items: center;
+        grid-auto-columns: 100%;
+
+    }
+
+    .modal__title {
+        font-size: 2.5rem;
+    }
+
+    .modal__paragraph1 {
+        margin-bottom: 10px;
+    }
+
+    .modal__paragraph2 {
+        margin-bottom: 10px;
+    }
+
+    .modal__img {
+        width: 30%;
+        max-width: 300px;
+    }
+
+    .modal__close {
+        text-decoration: none;
+        color: #fff;
+        background-color: #f26250;
+        padding: 1em 3em;
+        border: 1px solid;
+        border-radius: 6px;
+        display: inline-block;
+        font-weight: 300;
+        transition: background-color .3s;
+
+    }
+
+    .modal__close:hover {
+        color: #f26250;
+        background-color: rgb(243, 164, 164);
+    }
+
+}
+
+.modal--show {
+    opacity: 1;
+    pointer-events: unset;
+}
+
+
 
 
 @media screen and (max-width: 992px) {
     .contenedorSalonGral {
-        grid-template-areas: 
+        grid-template-areas:
             " pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 pasillo1 "
             "pasillo2 platea platea platea platea platea platea platea platea platea platea pasillo3"
             "pasillo4 pasillo4  pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4 pasillo4"
             "pullIz pullIz pasillo5 pullCentro pullCentro pullCentro pullCentro pullCentro pullCentro pasillo6 pullDe pullDe";
-            .reservas{
-                display: none;
-            }
+
+        .reservas {
+            //display: none;
+        }
 
     }
-    .butaca{
+
+    .butaca {
         margin: 3px;
         width: 20px;
         height: 20px;
@@ -257,8 +356,8 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
-    
-    .butaca{
+
+    .butaca {
         margin: 1px;
         width: 10px;
         height: 10px;

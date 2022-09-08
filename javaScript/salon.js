@@ -1,13 +1,17 @@
-const DateTime = luxon.DateTime;
+
 let arraySalon = [];
 let arrayButacasReservadas = [];
 let nombreSalon = document.getElementById("Salon").getAttribute("value");
 let array_butacas_salon = "arrayButacas-" + nombreSalon;
-
+let arrayPrecio = [];
 
 FetchSalon()
     .then(response => recuperarLoyout(response));
 
+FetchPrecios()
+    .then(response => arrayPrecio = response);
+
+//Carga por seccion la cantidad de butacas disponibles
 function recuperarLoyout(data) {
     data.forEach((element) => {
         let objSalon = new salon(nombreSalon, element.nombreSeccion, element.canitidadButacas);
@@ -16,37 +20,24 @@ function recuperarLoyout(data) {
     inicializar();
 }
 
-
-
-
-
 function inicializar() {
-    /*
-    let objSalon;
-    document.getElementById("idFecha").innerText=DateTime.now().toFormat('MMMM dd, yyyy');
-    objSalon = new salon(nombreSalon, "PF", 24);
-    arraySalon.push(objSalon);
-    objSalon = new salon(nombreSalon, "PI", 16);
-    arraySalon.push(objSalon);
-    objSalon = new salon(nombreSalon, "PD", 16);
-    arraySalon.push(objSalon);
-    objSalon = new salon(nombreSalon, "PC", 144);
-    arraySalon.push(objSalon);
-    */  
+    //Utilizamos la libreria Luxon para setaer la fecha en el footer
+    document.getElementById("idFecha").innerText = DateTime.now().toFormat('MMMM dd, yyyy'); 
+    if (!(document.querySelector(".divNotificaciones"))) {
+        ocupacionSalon();
+    }
+    //Del array del layout del salon seteamos las butacas de cada sección
     arraySalon.forEach(element => {
         for (let index = 1; index <= element.canitidadButacas; index++) {
             document.getElementById(`${element.nombreSeccion}${index}`).style.backgroundColor = 'white';
-            //document.getElementById(`${element.nombreSeccion}${index}`).disabled = true;
         }
     });
-     //Operador ternario
-    //arrayButacasReservadas = JSON.parse(localStorage.getItem(salonSeleccionado));
-    //arrayButacasReservadas == null ? arrayButacasReservadas = [] : marcarButacasReservadas(arrayButacasReservadas);
-    
-    arrayButacasReservadas = JSON.parse(localStorage.getItem(array_butacas_salon))||[];
+    //Recuperamos las butacas reservadas del Local Storage
+    arrayButacasReservadas = JSON.parse(localStorage.getItem(array_butacas_salon)) || [];
     marcarButacasReservadas(arrayButacasReservadas);
-    habilitarZona();
     
+    habilitarZona();
+
 }
 
 function habilitarZona() {
@@ -54,7 +45,7 @@ function habilitarZona() {
     setearZona(zona, false);
     dehabilitarZona();
 }
-
+//deshabilita la zona para solo usar las butacas disponible de la seccion elegida
 function dehabilitarZona() {
     let zonaElegida = document.getElementById("idSelect").value;
     for (let index = 0; index < 4; index++) {
@@ -64,13 +55,14 @@ function dehabilitarZona() {
         }
     }
 }
+//Setea las butacas de una zona
 function setearZona(zona, flag) {
     let elemento = document.querySelectorAll(`#${zona} div .butaca`);
     for (let index = 0; index < elemento.length; index++) {
         document.getElementById(elemento[index].id).disabled = flag;
     }
 }
-
+//selecciona una butaca
 function seleccionaButaca(element) {
 
     if (document.getElementById(element.id).style.backgroundColor == 'green') {
@@ -79,26 +71,24 @@ function seleccionaButaca(element) {
     else if (document.getElementById(element.id).style.backgroundColor != 'grey') {
         document.getElementById(element.id).style.backgroundColor = 'green';
     }
-    
+
 
 }
-
+//Busca lugares en la zona elegida
 function buscarLugares() {
-   
+
     let sector = document.getElementById("idSelect").value;
     let obj = arraySalon.find((element) => element.nombreSeccion == sector);
     let lugaresSolicitados = document.getElementById("cantidad").value;
 
     let lugarReservado = [];
     let cuentaEspacios = 0;
-    //let flagEncontro = false;
     inicializar(array_butacas_salon);
     for (let index = 1; index <= obj.canitidadButacas; index++) {
-       
+
         if (document.getElementById(`${obj.nombreSeccion}${index}`).style.backgroundColor == 'white') {
             lugarReservado.push(obj.nombreSeccion + index);
             cuentaEspacios++;
-            //flagEncontro=true;
             if (cuentaEspacios == lugaresSolicitados) {
                 break;
             }
@@ -108,9 +98,10 @@ function buscarLugares() {
     cuentaEspacios == lugaresSolicitados ? pintarEspacio(lugarReservado) : alerta("no hay disponibilidad en el sector");
 
 }
-
+//Confirma las butacas reservadas
 function confirmarButacas() {
     let sector = document.getElementById("idSelect").value;
+    //operadpor find de array
     let obj = arraySalon.find((element) => element.nombreSeccion == sector);
     confirmarButacasSalon(obj.nombreSeccion, obj.canitidadButacas);
 }
@@ -141,13 +132,15 @@ function confirmarButacasSalon(seccion, cantidad) {
             duration: 3500,
             newWindow: true,
             gravity: "bottom", // `top` or `bottom`
-            position: "center", // `left`, `center` or `right`
+            position: "left", // `left`, `center` or `right`
             stopOnFocus: true, // Prevents dismissing of toast on hover
             style: {
               background: "linear-gradient(to right, #997689, #1f1219)",
             },
             onClick: function(){} // Callback after click
           }).showToast();
+        mostrarDetalleDeCompra(seccion, lugaresSolicitados);
+
     }
     else if (butacasSeleccionadas < lugaresSolicitados) {
         alerta("Faltan seleccionar butacas...");
@@ -164,24 +157,17 @@ function pintarEspacio(lugarReservado) {
     });
     document.getElementById("botonBuscar").disabled = true;
 }
-
+//Utilizamos la libreria SweetAlert
 function alerta(mensaje) {
-    //document.getElementById("notificciones").innerText = mensaje;
     Swal.fire({
-        imageUrl:'../img/url.png',
-        //icon: "error",
+        imageUrl: '../img/url.png',
         title: mensaje
-      })
+    })
 }
 
 function marcarButacasReservadas(arrayButacasReservadas) {
 
     for (const iterator of arrayButacasReservadas) {
-        /*document.getElementById(iterator.id).style.backgroundColor = iterator.backgroundColor;
-        document.getElementById(iterator.id).value = iterator.value;
-        document.getElementById(iterator.id).innerText = iterator.innerText;
-        */
-
         //Spread de arrays
         let butacaReservada = { ...iterator };
         document.getElementById(butacaReservada.id).style.backgroundColor = butacaReservada.backgroundColor;
@@ -196,4 +182,70 @@ function marcarButacasReservadas(arrayButacasReservadas) {
 
     }
 
+}
+
+function mostrarDetalleDeCompra(seccion, cantidad) {
+    let modal = document.querySelector(".modal");
+    modal.classList.add("modal--show");
+    let importeEntrada = 0;
+    const found = arrayPrecio.find(element => element.nombreSeccion == seccion);
+    document.getElementById("modal__paragraphEntrada").innerText = "Cantidad entradas: " + cantidad;
+    document.getElementById("modal__paragraphImporte").innerText = "Total a pagar: " + parseInt(found.precio) * cantidad + "$";
+
+}
+
+function ocupacionSalon(){
+    let divNotificaciones = document.querySelector(".divNotificacionesContenedor")
+    let arrayButacasSalon1 = JSON.parse(localStorage.getItem("arrayButacas-salon1")) || [];
+    let arrayButacasSalon2 = JSON.parse(localStorage.getItem("arrayButacas-salon2")) || [];
+    let arrayButacasSalon3 = JSON.parse(localStorage.getItem("arrayButacas-salon3")) || [];
+    let arrayButacasSalon4 = JSON.parse(localStorage.getItem("arrayButacas-salon4")) || [];
+    let arrayButacasSalon5 = JSON.parse(localStorage.getItem("arrayButacas-salon5")) || [];
+    let arrayButacasSalon6 = JSON.parse(localStorage.getItem("arrayButacas-salon6")) || [];
+    SolicitarCantidadDeButacas()
+    .then((res) => {
+        let arrayOcupacion = [];
+        let objPorcentaje = new ocupacion("salon1", (arrayButacasSalon1.length == 0 ? 0 : (arrayButacasSalon1.length * 100) / res));
+        arrayOcupacion.push(objPorcentaje);
+        objPorcentaje = new ocupacion("salon2", (arrayButacasSalon2.length == 0 ? 0 : (arrayButacasSalon2.length * 100) / res));
+        arrayOcupacion.push(objPorcentaje);
+        objPorcentaje = new ocupacion("salon3", (arrayButacasSalon3.length == 0 ? 0 : (arrayButacasSalon3.length * 100) / res));
+        arrayOcupacion.push(objPorcentaje);
+        objPorcentaje = new ocupacion("salon4", (arrayButacasSalon4.length == 0 ? 0 : (arrayButacasSalon4.length * 100) / res));
+        arrayOcupacion.push(objPorcentaje);
+        objPorcentaje = new ocupacion("salon5", (arrayButacasSalon5.length == 0 ? 0 : (arrayButacasSalon5.length * 100) / res));
+        arrayOcupacion.push(objPorcentaje);
+        objPorcentaje = new ocupacion("salon6", (arrayButacasSalon6.length == 0 ? 0 : (arrayButacasSalon6.length * 100) / res));
+        arrayOcupacion.push(objPorcentaje);
+    
+        arrayOcupacion.forEach(element => {
+            if (element.nombreSala != nombreSalon) {
+                let div = document.createElement("div")
+                div.className = "divNotificaciones"
+                let h = document.createElement("h5");
+                h.innerHTML = `
+                <h5>${formatNombreSala(element.nombreSala)}</h5>`;
+                div.append(h);
+                let h2 = document.createElement("h5");
+                h2.innerHTML = `
+                <h5>${element.porcentaje}%</h5>`;
+                div.append(h2);
+    
+                divNotificaciones.append(div);
+            }
+        });
+    })
+    .catch((err) => {
+        console.log(0);
+    })
+    /*.finally(() => {
+        console.log("Fin del proceso")
+    })*/
+
+
+}
+
+function formatNombreSala(nombreSalon) {
+    //salon1
+    return (nombreSalon.substring(0, 5) + " " + nombreSalon.substring(5, nombreSalon.length)).toUpperCase();
 }
